@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fun.kitsunebi.kitsunebi4android">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.weilizan.kitsunebi">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
+        android:exported="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_kitsunebi"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_kitsunebi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.QRActivity" />
+        <activity
             android:name=".ui.MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
@@ -24,69 +35,60 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.proxylog.ProxyLogActivity"
-            android:label="Proxy Logs"
-            android:parentActivityName=".ui.MainActivity">
-        </activity>
-
+            android:exported="true"
+            android:label="@string/proxy_log_activity_label"
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.LogcatActivity"
-            android:label="Logcat"
-            android:parentActivityName=".ui.MainActivity">
-        </activity>
-
+            android:exported="true"
+            android:label="@string/logcat_activity_label"
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.settings.SettingsActivity"
-            android:label="Settings"
-            android:parentActivityName=".ui.MainActivity">
-        </activity>
-
+            android:exported="true"
+            android:label="@string/settings_activity_label"
+            android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.StartVpnActivity"
-            android:theme="@style/Theme.Transparent">
-        </activity>
-
+            android:exported="true"
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".ui.perapp.PerAppActivity"
-            android:label="Per-App VPN"
-            android:parentActivityName=".ui.settings.SettingsActivity">
-        </activity>
-
+            android:exported="true"
+            android:label="@string/per_app_activity_label"
+            android:parentActivityName=".ui.settings.SettingsActivity" />
         <activity
             android:name=".ui.perapp.AppListActivity"
-            android:label="App List"
-            android:parentActivityName=".ui.perapp.PerAppActivity">
-        </activity>
-
+            android:exported="true"
+            android:label="@string/app_list_activity_labal"
+            android:parentActivityName=".ui.perapp.PerAppActivity" />
         <activity
             android:name=".ui.SubscribeConfigActivity"
-            android:label="Subscribe Config"
-            android:parentActivityName=".ui.MainActivity">
-        </activity>
+            android:exported="true"
+            android:label="@string/subscribe_config_activity_label"
+            android:parentActivityName=".ui.MainActivity" />
 
         <service
             android:name=".service.SimpleVpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE" >
+            android:exported="true"
+            android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.VpnTileService"
             android:enabled="true"
             android:exported="true"
-            android:label="Kitsunebi"
             android:icon="@drawable/ic_kitsunebi_tile"
+            android:label="Kitsunebi"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

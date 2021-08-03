@@ -1,26 +1,33 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="fun.kitsunebi.kitsunebi4android.ui.MainActivity">
+    tools:context="com.weilizan.kitsunebi.ui.MainActivity">
+    <item
+        android:id="@+id/import_from_clipboard_btn"
+        android:title="@string/menu_import_from_clipboard" />
+    <item
+        android:id="@+id/scan_code_to_add"
+        android:title="扫码添加" />
     <item
         android:id="@+id/subscribe_config_btn"
-        android:title="Subscribe Config" />
-    <item
-        android:id="@+id/format_btn"
-        android:title="Format JSON" />
-    <item
-        android:id="@+id/save_btn"
-        android:title="Save Config" />
+        android:title="@string/subscribe_config_btn" />
+<!--    <item-->
+<!--        android:id="@+id/format_btn"-->
+<!--        android:title="@string/format_btn" />-->
+<!--    <item-->
+<!--        android:id="@+id/save_btn"-->
+<!--        android:title="@string/main_save_btn" />-->
     <item
         android:id="@+id/log_btn"
-        android:title="Proxy Log" />
+        android:title="@string/log_btn" />
     <item
         android:id="@+id/settings_btn"
-        android:title="Settings" />
+        android:title="@string/settings_btn" />
     <item
         android:id="@+id/logcat_btn"
-        android:title="Logcat" />
+        android:title="@string/logcat_btn" />
     <item
         android:id="@+id/help_btn"
-        android:title="Help" />
+        android:title="@string/help_btn" />
+
 </menu>

@@ -14,11 +14,11 @@
         android:id="@+id/sub_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update" />
+        android:text="@string/activity_subscribe_config_sub_btn" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Updating the current configuration from the URL. Only supports HTTPS URL, using a HTTP URL will just crash the app..." />
+        android:text="@string/activity_subscribe_config_text" />
 </LinearLayout>

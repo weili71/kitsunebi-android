@@ -15,4 +15,52 @@
     <string name="disallowed_list">Disallowed list</string>
     <string name="sniffing">sniffing</string>
     <string name="inbound_tag">inbound_tag</string>
+
+    <string name="subscribe_config_btn">Subscribe Config</string>
+    <string name="format_btn">Format JSON</string>
+    <string name="main_save_btn">Save Config</string>
+    <string name="log_btn">Proxy Log</string>
+    <string name="settings_btn">Settings</string>
+    <string name="logcat_btn">Logcat</string>
+    <string name="help_btn">Help</string>
+    <string name="clear_btn">Clear</string>
+    <string name="copy_btn">Copy All</string>
+    <string name="save_btn">Save</string>
+    <string name="settings_title1">Per-App VPN</string>
+    <string name="settings_summary1">Configure Per-App VPN.</string>
+    <string name="settings_summary2">You may want to disable logging for saving battery life.</string>
+    <string name="settings_title2">Proxy logging</string>
+    <string name="settings_summary3">Hide DNS logs in proxy log list.</string>
+    <string name="settings_summary4">The DNS server that will be used by the freedom outbound (in case you are using AsIs as the freedom outbound\'s domain strategy) or for resolving domain names of outbound servers, and these DNS requests won\'t be logged to proxy log. Moreover, non A/AAAA DNS queries from the OS will also be sent to this DNS server, they will be treated as normal UDP traffic.</string>
+    <string name="settings_summary5">Sniffing settings for the tun2socks inbound.</string>
+    <string name="settings_summary6">Inbound tag for distinguishing traffic coming from tun2socks in routing procedure.</string>
+    <string name="settings_title3">Hide DNS logs</string>
+    <string name="settings_title4">Local DNS</string>
+    <string name="settings_title5">Sniffing</string>
+    <string name="settings_title6">Inbound Tag</string>
+    <string name="settings_per_app_title1">Enable Per-App VPN</string>
+    <string name="settings_per_app_title2">Per-App Mode</string>
+    <string name="settings_per_app_summary2">%s\n\nYou may either use the allowed list or the disallowed list, but not both.</string>
+    <string name="settings_per_app_summary3">Selected apps are allowed to use the VPN tunnel, others are disallowed.</string>
+    <string name="settings_per_app_summary4">Selected apps are disallowed to use the VPN tunnel, others will be allowed.</string>
+    <string name="settings_title7">Core Version</string>
+    <string name="settings_title8">Version</string>
+    <string name="menu_import_from_clipboard">从剪贴板导入</string>
+    <string name="activity_subscribe_config_sub_btn">Update</string>
+    <string name="activity_subscribe_config_text">Updating the current configuration from the URL. Only supports HTTPS URL, using a HTTP URL will just crash the app...</string>
+    <string name="subscribe_config_activity_label">Subscribe Config</string>
+    <string name="app_list_activity_labal">App List</string>
+    <string name="per_app_activity_label">Per-App VPN</string>
+    <string name="settings_activity_label">Settings</string>
+    <string name="logcat_activity_label">Logcat</string>
+    <string name="proxy_log_activity_label">Proxy Logs</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

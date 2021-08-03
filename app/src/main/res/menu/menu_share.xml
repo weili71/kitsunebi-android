@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.weilizan.kitsunebi.ui.MainActivity">
+    <item
+        android:id="@+id/qr_code"
+        android:title="二维码" />
+    <item
+        android:id="@+id/export_url"
+        android:title="导出URl至剪贴板" />
+    <item
+        android:id="@+id/export_json"
+        android:title="导出Json配置至剪贴板" />
+
+</menu>
