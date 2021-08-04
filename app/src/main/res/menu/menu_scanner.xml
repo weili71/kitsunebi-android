@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/copy_btn"
-        android:title="@string/copy_btn"
+    <item android:title="闪光灯"
+        android:id="@+id/open_flash"
+        app:showAsAction="always"/>
+    <item android:title="相册"
+        android:id="@+id/open_photo_album"
         app:showAsAction="always"/>
 </menu>

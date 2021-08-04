@@ -22,7 +22,7 @@ data class VmessURL(
     //port: 端口号
     val port: String,
     //ps: 备注或别名
-    val ps: String,
+    var ps: String,
     //scy: 加密方式(security),没有时值默认auto
     @SerializedName("scy")
     val security: String,

@@ -11,8 +11,8 @@
     <string name="per_app_mode">per_app_mode</string>
     <string name="per_app_allowed_app_list">per_app_allowed_app_list</string>
     <string name="per_app_disallowed_app_list">per_app_disallowed_app_list</string>
-    <string name="allowed_list">允许列表</string>
-    <string name="disallowed_list">禁止列表</string>
+    <string name="allowed_list">黑名单</string>
+    <string name="disallowed_list">白名单</string>
     <string name="sniffing">sniffing</string>
     <string name="inbound_tag">inbound_tag</string>
 
@@ -40,7 +40,7 @@
     <string name="settings_title6">入站标签</string>
     <string name="settings_per_app_title1">启用分应用代理</string>
     <string name="settings_per_app_title2">分应用代理模式</string>
-    <string name="settings_per_app_summary2">%s\n\n您可以使用允许列表或禁止列表，但不能同时使用两者。</string>
+    <string name="settings_per_app_summary2">%s\n\n您可以使用黑名单或白名单，但不能同时使用两者。</string>
     <string name="settings_per_app_summary3">允许选定的应用程序使用 VPN 隧道，不允许其他应用程序。</string>
     <string name="settings_per_app_summary4">不允许选定的应用程序使用 VPN 隧道，其他应用程序将被允许。</string>
     <string name="settings_title7">核心版本</string>
@@ -54,4 +54,20 @@
     <string name="settings_activity_label">设置</string>
     <string name="logcat_activity_label">Logcat</string>
     <string name="proxy_log_activity_label">代理日志</string>
+
+    <string name="switch_return_after_capture">Return After First</string>
+    <string name="switch_folder_mode">文件夹模式</string>
+    <string name="switch_include_video">包括视频</string>
+    <string name="switch_only_video">只有视频</string>
+    <string name="switch_single">单选</string>
+    <string name="switch_imageloader">自定义图像加载器？</string>
+    <string name="switch_include_exclude">Exclude排除</string>
+    <string name="text_view">结果在这里……</string>
+    <string name="button_pick_image">选择图像</string>
+    <string name="button_launch_fragment">启动Fragment</string>
+    <string name="button_camera">相机</string>
+    <string name="button_intent">Intent</string>
+    <string name="button_custom_ui">自定义用户界面</string>
+    <string name="button_pick_fragment">选择</string>
+    <string name="button_close">关闭</string>
 </resources>

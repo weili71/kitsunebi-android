@@ -39,8 +39,6 @@ class AppListActivity : AppCompatActivity() {
             1 -> {
                 setTitle(R.string.disallowed_list)
             }
-            else -> {
-            }
         }
 
         setContentView(R.layout.activity_app_list)

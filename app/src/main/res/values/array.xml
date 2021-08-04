@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="per_app_modes">
-        <item>Allowed list</item>
-        <item>Disallowed list</item>
+        <item>@string/allowed_list</item>
+        <item>@string/disallowed_list</item>
     </string-array>
     <string-array name="per_app_modes_values">
         <item>0</item>

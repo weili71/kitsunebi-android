@@ -1,4 +1,4 @@
-package com.weilizan.kitsunebi.model
+package com.weilizan.kitsunebi.ui.qrcode
 
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData

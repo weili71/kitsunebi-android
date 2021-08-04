@@ -197,4 +197,10 @@ class Constants {
 }
         """.trimIndent()
     }
+/*
+{
+  "outbounds": [
+
+      "protocol":
+* */
 }

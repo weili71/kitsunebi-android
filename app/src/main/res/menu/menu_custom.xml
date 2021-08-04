@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/save"
+        android:title="@string/main_save_btn"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/format"
+        android:title="@string/format_btn" />
+    <item
+        android:id="@+id/generate_template"
+        android:title="生成模板配置" />
+</menu>

@@ -42,6 +42,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    packagingOptions {
+        pickFirst "META-INF/core.kotlin_module"
+        pickFirst "META-INF/imagepicker_release.kotlin_module"
+    }
 }
 
 dependencies {
@@ -59,15 +63,21 @@ dependencies {
     implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
     implementation 'com.google.zxing:core:3.3.0'
     implementation(name: 'tun2socks', ext: 'aar')
-
+//    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.afollestad.material-dialogs:input:3.3.0'
     implementation 'androidx.room:room-runtime:2.4.0-alpha04'
+    implementation 'me.dm7.barcodescanner:zbar:1.9.13'
+    implementation 'com.guolindev.permissionx:permissionx:1.5.0'
 //    implementation 'androidx.room:room-compiler:2.4.0-alpha04'
+    implementation 'com.github.esafirm:android-image-picker:3.0.0-beta1'
+    implementation "com.github.bumptech.glide:glide:4.10.0"
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    testImplementation 'junit:junit:4.12'
 //    implementation "androidx.lifecycle:lifecycle-compiler:2.4.0-alpha02"
 }
 

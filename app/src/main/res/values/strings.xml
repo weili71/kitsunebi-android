@@ -63,4 +63,21 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="switch_return_after_capture">Return After First</string>
+    <string name="switch_folder_mode">Folder Mode</string>
+    <string name="switch_include_video">Include Video</string>
+    <string name="switch_only_video">Only video</string>
+    <string name="switch_single">Single Mode?</string>
+    <string name="switch_imageloader">Custom Image Loader?</string>
+    <string name="switch_include_exclude">Exclude</string>
+    <string name="text_view">Result goes here…</string>
+    <string name="button_pick_image">PICK IMAGE</string>
+    <string name="button_launch_fragment">Launch Fragment</string>
+    <string name="button_camera">Camera</string>
+    <string name="button_intent">Intent</string>
+    <string name="button_custom_ui">Custom UI</string>
+    <string name="button_pick_fragment">pick</string>
+    <string name="button_close">Close</string>
 </resources>

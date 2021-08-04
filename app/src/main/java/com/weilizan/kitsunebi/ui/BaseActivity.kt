@@ -8,6 +8,10 @@ import com.weilizan.kitsunebi.databinding.ActivityQrCodeBinding
 
 open class BaseActivity : AppCompatActivity() {
 
+    companion object {
+        val TAG: String = javaClass.canonicalName
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

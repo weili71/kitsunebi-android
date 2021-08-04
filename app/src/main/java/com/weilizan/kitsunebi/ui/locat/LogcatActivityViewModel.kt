@@ -1,4 +1,4 @@
-package com.weilizan.kitsunebi.model
+package com.weilizan.kitsunebi.ui.locat
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

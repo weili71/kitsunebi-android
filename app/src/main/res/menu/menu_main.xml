@@ -1,22 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.weilizan.kitsunebi.ui.MainActivity">
+    tools:context="com.weilizan.kitsunebi.ui.main.MainActivity">
     <item
         android:id="@+id/import_from_clipboard_btn"
         android:title="@string/menu_import_from_clipboard" />
+    <item
+        android:id="@+id/add_custom_configuration"
+        android:title="添加自定义配置" />
     <item
         android:id="@+id/scan_code_to_add"
         android:title="扫码添加" />
     <item
         android:id="@+id/subscribe_config_btn"
         android:title="@string/subscribe_config_btn" />
-<!--    <item-->
-<!--        android:id="@+id/format_btn"-->
-<!--        android:title="@string/format_btn" />-->
-<!--    <item-->
-<!--        android:id="@+id/save_btn"-->
-<!--        android:title="@string/main_save_btn" />-->
     <item
         android:id="@+id/log_btn"
         android:title="@string/log_btn" />

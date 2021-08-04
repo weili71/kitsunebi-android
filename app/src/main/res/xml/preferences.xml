@@ -7,8 +7,8 @@
         app:iconSpaceReserved="false">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="fun.kitsunebi.kitsunebi4android.ui.perapp.PerAppActivity"
-            android:targetPackage="fun.kitsunebi.kitsunebi4android" />
+            android:targetClass="com.weilizan.kitsunebi.ui.perapp.PerAppActivity"
+            android:targetPackage="com.weilizan.kitsunebi" />
     </Preference>
 
     <SwitchPreferenceCompat

@@ -1,15 +1,14 @@
-package com.weilizan.kitsunebi.ui
+package com.weilizan.kitsunebi.ui.locat
 
 import com.weilizan.kitsunebi.R
 import com.weilizan.kitsunebi.databinding.ActivityLogcatBinding
-import com.weilizan.kitsunebi.model.LogcatActivityViewModel
 import com.weilizan.kitsunebi.util.copyToClipboard
 import android.content.ClipData
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.weilizan.kitsunebi.ui.BaseActivity
 import ijk.player.videoview.util.toast
 import kotlinx.android.synthetic.main.activity_logcat.*
 import java.io.BufferedReader
@@ -17,6 +16,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.*
 import kotlin.concurrent.schedule
+import kotlin.concurrent.scheduleAtFixedRate
 
 
 class LogcatActivity : BaseActivity() {
@@ -59,9 +59,9 @@ class LogcatActivity : BaseActivity() {
                     bgTimer.schedule(1000) {
                         readAndDisplay()
                     }
-//                    bgTimer.scheduleAtFixedRate(0, 5000) {
-//                        readAndDisplay()
-//                    }
+                    bgTimer.scheduleAtFixedRate(0, 5000) {
+                        readAndDisplay()
+                    }
                 } catch (e: IOException) {
                     println(e)
                 }

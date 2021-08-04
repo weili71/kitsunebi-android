@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_container"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_return_after_capture"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_return_after_capture" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_folder_mode"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_folder_mode" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_include_video"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_include_video" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_only_video"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_only_video" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_single"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_single" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_imageloader"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_imageloader" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_include_exclude"
+                style="@style/SampleSwitch"
+                android:text="@string/switch_include_exclude" />
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_view" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_pick_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_pick_image" />
+
+            <Button
+                android:id="@+id/button_launch_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_launch_fragment" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/button_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_camera" />
+
+            <Button
+                android:id="@+id/button_intent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_intent" />
+
+            <Button
+                android:id="@+id/button_custom_ui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_custom_ui" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

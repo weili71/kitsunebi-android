@@ -1,17 +1,17 @@
-package com.weilizan.kitsunebi.ui
+package com.weilizan.kitsunebi.ui.qrcode
 
-import android.R
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModelProvider
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import com.weilizan.kitsunebi.R
 import com.weilizan.kitsunebi.databinding.ActivityQrCodeBinding
-import com.weilizan.kitsunebi.model.LogcatActivityViewModel
-import com.weilizan.kitsunebi.model.QRActivityViewModel
+import com.weilizan.kitsunebi.ui.BaseActivity
+import com.weilizan.kitsunebi.ui.getScreenHeight
+import com.weilizan.kitsunebi.ui.getScreenWidth
 import ijk.player.videoview.util.toast
 import kotlin.math.min
 
@@ -26,7 +26,6 @@ class QRActivity : BaseActivity() {
         binding = ActivityQrCodeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this).get(QRActivityViewModel::class.java)
         viewModel.data.observe(this, {
@@ -52,12 +51,22 @@ class QRActivity : BaseActivity() {
                 toast(this, "生成二维码失败")
             }
         }
-
-        binding.saveQr.setOnClickListener {
-            val bitmap = viewModel.data.value
-            MediaStore.Images.Media.insertImage(contentResolver, bitmap, "扫码连接", "description");
-            toast(this, "保存二维码成功")
-        }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_qr_code, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.save_qr_code -> {
+                val bitmap = viewModel.data.value
+                MediaStore.Images.Media.insertImage(contentResolver, bitmap, "扫码连接", "description");
+                toast(this, "保存二维码成功")
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return false
+    }
 }

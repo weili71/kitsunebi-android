@@ -1,37 +1,43 @@
-package com.weilizan.kitsunebi.ui
+package com.weilizan.kitsunebi.ui.main
 
-import com.weilizan.kitsunebi.R
-import com.weilizan.kitsunebi.common.Constants
-import com.weilizan.kitsunebi.common.showAlert
-import com.weilizan.kitsunebi.databinding.ActivityMainBinding
-import com.weilizan.kitsunebi.model.VmessURL
-import com.weilizan.kitsunebi.service.SimpleVpnService
-import com.weilizan.kitsunebi.storage.Preferences
-import com.weilizan.kitsunebi.ui.adapter.MainAdapter
-import com.weilizan.kitsunebi.ui.proxylog.ProxyLogActivity
-import com.weilizan.kitsunebi.ui.settings.SettingsActivity
-import com.weilizan.kitsunebi.util.base64Decode
-import com.weilizan.kitsunebi.util.getClipboardContents
-import android.app.Activity
+import android.Manifest
 import android.content.*
 import android.net.Uri
-import android.net.VpnService
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.WhichButton
+import com.afollestad.materialdialogs.actions.setActionButtonEnabled
+import com.afollestad.materialdialogs.input.getInputField
+import com.afollestad.materialdialogs.input.input
 import com.google.gson.Gson
+import com.permissionx.guolindev.PermissionX
+import com.weilizan.kitsunebi.R
+import com.weilizan.kitsunebi.common.showAlert
+import com.weilizan.kitsunebi.databinding.ActivityMainBinding
+import com.weilizan.kitsunebi.model.VmessURL
+import com.weilizan.kitsunebi.service.SimpleVpnService
+import com.weilizan.kitsunebi.storage.Preferences
+import com.weilizan.kitsunebi.ui.qrcode.ScannerActivity
+import com.weilizan.kitsunebi.ui.SubscribeConfigActivity
+import com.weilizan.kitsunebi.ui.custom.CustomActivity
+import com.weilizan.kitsunebi.ui.locat.LogcatActivity
+import com.weilizan.kitsunebi.ui.proxylog.ProxyLogActivity
+import com.weilizan.kitsunebi.ui.settings.SettingsActivity
+import com.weilizan.kitsunebi.util.base64Decode
+import com.weilizan.kitsunebi.util.getClipboardContents
 import ijk.player.videoview.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-       private val TAG =javaClass.simpleName
+    companion object {
+        private val TAG = javaClass.simpleName
     }
 
     var running = false
@@ -70,7 +76,10 @@ class MainActivity : AppCompatActivity() {
                     starting = false
                     fab.setImageResource(android.R.drawable.ic_media_play)
                     context?.let {
-                        showAlert(it, "Start VPN service failed: Not configuring DNS right, must has at least 1 dns server and mustn't include \"localhost\"")
+                        showAlert(
+                            it,
+                            "Start VPN service failed: Not configuring DNS right, must has at least 1 dns server and mustn't include \"localhost\""
+                        )
                     }
                 }
                 "vpn_start_err_config" -> {
@@ -84,7 +93,11 @@ class MainActivity : AppCompatActivity() {
                 "pong" -> {
                     fab.setImageResource(android.R.drawable.ic_media_pause)
                     running = true
-                    Preferences.putBool(applicationContext, getString(R.string.vpn_is_running), true)
+                    Preferences.putBool(
+                        applicationContext,
+                        getString(R.string.vpn_is_running),
+                        true
+                    )
                 }
             }
         }
@@ -94,11 +107,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
@@ -119,21 +132,21 @@ class MainActivity : AppCompatActivity() {
         updateUI()
 
         fab.setOnClickListener { view ->
-            if (!running && !starting) {
-                starting = true
-                fab.setImageResource(android.R.drawable.ic_media_ff)
-                configString = configView.text.toString()
-                Preferences.putString(applicationContext, Constants.Companion.PREFERENCE_CONFIG_KEY, configString)
-                val intent = VpnService.prepare(this)
-                if (intent != null) {
-                    startActivityForResult(intent, 1)
-                } else {
-                    onActivityResult(1, Activity.RESULT_OK, null);
-                }
-            } else if (running && !stopping) {
-                stopping = true
-                sendBroadcast(Intent("stop_vpn"))
-            }
+//            if (!running && !starting) {
+//                starting = true
+//                fab.setImageResource(android.R.drawable.ic_media_ff)
+//                configString = configView.text.toString()
+//                Preferences.putString(applicationContext, Constants.Companion.PREFERENCE_CONFIG_KEY, configString)
+//                val intent = VpnService.prepare(this)
+//                if (intent != null) {
+//                    startActivityForResult(intent, 1)
+//                } else {
+//                    onActivityResult(1, Activity.RESULT_OK, null);
+//                }
+//            } else if (running && !stopping) {
+//                stopping = true
+//                sendBroadcast(Intent("stop_vpn"))
+//            }
         }
     }
 
@@ -152,79 +165,96 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.import_from_clipboard_btn->{
+            R.id.import_from_clipboard_btn -> {
                 try {
-                    var url=getClipboardContents(this)
+                    var url = getClipboardContents(this)
                     if (url.isNullOrEmpty()) {
                         toast(this, "导入失败：剪贴板为空")
                         return true
                     }
 
-                    url=url.trim()
+                    url = url.trim()
 
-                    if (url.matches(Regex("""^vmess://.+$"""))){
-                        val json = base64Decode(url.replace("vmess://",""))
+                    if (url.matches(Regex("""^vmess://.+$"""))) {
+                        val json = base64Decode(url.replace("vmess://", ""))
 
 //                        binding.contentMain.configView.setText(json)
 
-                        val data:VmessURL=Gson().fromJson(json,VmessURL::class.java)
+                        val data: VmessURL = Gson().fromJson(json, VmessURL::class.java)
 
                         Log.d(TAG, "onOptionsItemSelected: $json")
-                        toast(this,"导入成功")
+                        toast(this, "导入成功")
 
-                        val adapter=MainAdapter(listOf(data,data,data))
+
+                        val list = mutableListOf<VmessURL>()
+                        for (i in 0..50) {
+                            data.ps = i.toString()
+                            list.add(data.copy())
+                        }
+                        val adapter = MainAdapter(list, 0)
 
                         binding.configList.apply {
-                            layoutManager=LinearLayoutManager(this@MainActivity)
-                            if (this.itemDecorationCount==0) {
+                            layoutManager = LinearLayoutManager(this@MainActivity)
+                            if (this.itemDecorationCount == 0) {
                                 addItemDecoration(MainAdapter.SpacesItemDecoration(25))
                             }
-                            this.adapter=adapter
+                            this.adapter = adapter
                         }
-                    }else{
-                        toast(this,"导入失败：URL错误")
+                    } else {
+                        toast(this, "导入失败：URL错误")
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    toast(this,"导入失败：${e.message}")
+                    toast(this, "导入失败：${e.message}")
                 }
             }
-            R.id.scan_code_to_add->{
+            R.id.add_custom_configuration -> {
+                MaterialDialog(this).show {
+                    title(null, "名称")
+                    input(hint = "请输入名称", maxLength = 20,waitForPositiveButton = false) { dialog, text ->
+                        val inputField = dialog.getInputField()
+                        val isValid = inputField.length() < 10
 
+                        inputField.error = if (isValid) null else "文件名不能超过10个字符"
+                        dialog.setActionButtonEnabled(WhichButton.POSITIVE, isValid)
+                    }
+                    negativeButton(text = "取消")
+                    positiveButton(text = "确定") {
+                        val intent = Intent(this@MainActivity, CustomActivity::class.java)
+                        intent.putExtra("filename", it.getInputField().text.toString())
+                        Log.d(TAG, "onOptionsItemSelected: ${it.getInputField().text.toString()}")
+                        startActivity(intent)
+                    }
+                }
+            }
+            R.id.scan_code_to_add -> {
+                PermissionX.init(this)
+                    .permissions(Manifest.permission.CAMERA)
+                    .explainReasonBeforeRequest()
+                    .onExplainRequestReason { scope, deniedList ->
+                        scope.showRequestReasonDialog(deniedList, "扫描二维码需要相机权限", "去授权", "取消")
+                    }
+                    .onForwardToSettings { scope, deniedList ->
+                        scope.showForwardToSettingsDialog(deniedList, "您需要在“设置”中手动授予必要的权限", "去授权", "取消")
+                    }
+                    .request { allGranted, grantedList, deniedList ->
+                        if (allGranted) {
+                            startActivity(Intent(this, ScannerActivity::class.java))
+                        } else {
+                            toast(this,"相机权限被拒绝")
+                        }
+                    }
             }
             R.id.subscribe_config_btn -> {
                 val intent = Intent(this, SubscribeConfigActivity::class.java)
                 startActivity(intent)
             }
-//            R.id.format_btn -> {
-//                val prettyText = formatJsonString(configView.text.toString())
-//                prettyText?.let {
-//                    configView.setText(it, TextView.BufferType.EDITABLE)
-//                }
-//            }
-//            R.id.save_btn -> {
-//                val config = configView.text.toString()
-//                val prettyText = formatJsonString(config)
-//                if (prettyText == null) {
-//                    showAlert(this, "Invalid JSON")
-//                }else {
-//                    Preferences.putString(
-//                        applicationContext,
-//                        Constants.PREFERENCE_CONFIG_KEY,
-//                        prettyText
-//                    )
-//                }
-//            }
             R.id.log_btn -> {
                 val intent = Intent(this, ProxyLogActivity::class.java)
                 startActivity(intent)
@@ -238,7 +268,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.help_btn -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/eycorsican/kitsunebi-android"))
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/weili71/kitsunebi-android")
+                )
                 startActivity(intent)
             }
             else -> super.onOptionsItemSelected(item)
@@ -246,10 +279,13 @@ class MainActivity : AppCompatActivity() {
 
         return true
     }
+
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(broadcastReceiver)
     }
+
+}
 
 //    private fun startNotification() {
 //        // Build Notification , setOngoing keeps the notification always in status bar
@@ -270,4 +306,3 @@ class MainActivity : AppCompatActivity() {
 //        // Builds the notification and issues it.
 //        mNotificationManager?.notify(mNotificationId, mBuilder.build())
 //    }
-}

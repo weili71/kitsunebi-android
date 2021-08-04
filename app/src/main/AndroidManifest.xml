@@ -8,6 +8,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,13 +23,26 @@
         android:roundIcon="@mipmap/ic_kitsunebi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".sample.MainActivity2" android:exported="true">
+        </activity>
         <activity
-            android:name=".ui.BaseActivity"
-            android:label="@string/title_activity_base"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.QRActivity" />
+            android:exported="true"
+            android:name=".sample.CustomUIActivity"
+            android:theme="@style/ef_AppTheme" />
         <activity
-            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:name=".sample.ImageViewerActivity"
+            android:theme="@style/ef_AppTheme" />
+
+        <activity android:name=".ui.qrcode.ScannerActivity" android:exported="true"/>
+        <activity android:name=".ui.custom.CustomActivity" android:exported="true"/>
+        <activity
+            android:exported="true"
+            android:name=".ui.qrcode.QRActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
@@ -39,17 +57,17 @@
             android:name=".ui.proxylog.ProxyLogActivity"
             android:exported="true"
             android:label="@string/proxy_log_activity_label"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
-            android:name=".ui.LogcatActivity"
+            android:name=".ui.locat.LogcatActivity"
             android:exported="true"
             android:label="@string/logcat_activity_label"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:exported="true"
             android:label="@string/settings_activity_label"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
         <activity
             android:name=".ui.StartVpnActivity"
             android:exported="true"
@@ -68,7 +86,7 @@
             android:name=".ui.SubscribeConfigActivity"
             android:exported="true"
             android:label="@string/subscribe_config_activity_label"
-            android:parentActivityName=".ui.MainActivity" />
+            android:parentActivityName=".ui.main.MainActivity" />
 
         <service
             android:name=".service.SimpleVpnService"

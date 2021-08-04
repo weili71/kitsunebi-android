@@ -29,7 +29,7 @@ fun base64Encode(content: String): String {
 
 fun base64Decode(content: String): String = String(Base64.decode(content, Base64.NO_WRAP))
 
-fun formatJsonString(json: String): String? {
+fun formatJsonString(json: String): String {
     return JSONObject(json).toString(2)
 }
 
