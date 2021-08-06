@@ -18,7 +18,7 @@ import com.weilizan.kitsunebi.model.VmessURL
 import com.weilizan.kitsunebi.ui.qrcode.QRActivity
 import com.weilizan.kitsunebi.util.base64Encode
 import com.weilizan.kitsunebi.util.copyToClipboard
-import ijk.player.videoview.util.toast
+import com.weilizan.kitsunebi.util.toast
 
 
 class MainAdapter(

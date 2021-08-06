@@ -4,20 +4,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import com.weilizan.kitsunebi.util.toast
 import com.weilizan.kitsunebi.R
 import com.weilizan.kitsunebi.common.Constants
 import com.weilizan.kitsunebi.databinding.ActivityCustomBinding
 import com.weilizan.kitsunebi.storage.Preferences
 import com.weilizan.kitsunebi.ui.BaseActivity
 import com.weilizan.kitsunebi.util.formatJsonString
-import ijk.player.videoview.util.toast
-import kotlinx.android.synthetic.main.config_list_item.*
 import org.json.JSONException
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 
 class CustomActivity : BaseActivity() {

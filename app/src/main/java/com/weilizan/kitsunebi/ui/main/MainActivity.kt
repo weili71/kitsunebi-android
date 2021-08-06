@@ -30,7 +30,7 @@ import com.weilizan.kitsunebi.ui.proxylog.ProxyLogActivity
 import com.weilizan.kitsunebi.ui.settings.SettingsActivity
 import com.weilizan.kitsunebi.util.base64Decode
 import com.weilizan.kitsunebi.util.getClipboardContents
-import ijk.player.videoview.util.toast
+import com.weilizan.kitsunebi.util.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 

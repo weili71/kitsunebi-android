@@ -29,9 +29,6 @@ android {
     }
     productFlavors {
     }
-    viewBinding {
-        enabled = true
-    }
     buildFeatures {
         viewBinding true
     }

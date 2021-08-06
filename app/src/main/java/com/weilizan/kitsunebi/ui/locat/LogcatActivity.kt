@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
+import com.weilizan.kitsunebi.util.toast
 import com.weilizan.kitsunebi.ui.BaseActivity
-import ijk.player.videoview.util.toast
 import kotlinx.android.synthetic.main.activity_logcat.*
 import java.io.BufferedReader
 import java.io.IOException
