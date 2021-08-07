@@ -99,7 +99,7 @@ class MainAdapter(
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val content = list[position]
         holder.binding.anotherName.text = content.ps
-        holder.binding.serverAddress.text = content.address
+        holder.binding.serverAddress.text = content.address+" : "+content.port
         holder.binding.info.text = "200ms"
 
         if (position == selectedPosition) {

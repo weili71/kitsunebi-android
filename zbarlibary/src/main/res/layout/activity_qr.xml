@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent" />
+
+
+    <!-- 二维码识别界面 -->
+    <cn.bertsir.zbar.CameraPreview
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </cn.bertsir.zbar.CameraPreview>
+
+
+    <cn.bertsir.zbar.view.ScanView
+        android:id="@+id/scan_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        >
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:text="扫一扫"
+            android:textColor="#b3ffffff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/flash"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_trans_black"
+        android:src="@drawable/scanner_light"
+        android:padding="5dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/album"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle_trans_black"
+        android:src="@drawable/scanner_album"
+        android:padding="5dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="30dp"
+        >
+
+        <cn.bertsir.zbar.view.VerticalSeekBar
+            android:id="@+id/zoom"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            app:seekBarRotation ="CW270"
+            />
+
+    </LinearLayout>
+
+
+</FrameLayout>

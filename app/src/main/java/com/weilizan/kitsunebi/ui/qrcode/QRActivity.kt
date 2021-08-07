@@ -9,8 +9,8 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
-import com.google.zxing.BarcodeFormat
-import com.journeyapps.barcodescanner.BarcodeEncoder
+//import com.google.zxing.BarcodeFormat
+//import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.weilizan.kitsunebi.R
 import com.weilizan.kitsunebi.databinding.ActivityQrCodeBinding
 import com.weilizan.kitsunebi.ui.BaseActivity
@@ -42,14 +42,14 @@ class QRActivity : BaseActivity() {
             try {
                 val width = min(getScreenWidth(this), getScreenHeight(this))
 
-                val barcodeEncoder = BarcodeEncoder()
-                val bitmap = barcodeEncoder.encodeBitmap(
-                    vmessUrl,
-                    BarcodeFormat.QR_CODE,
-                    width, width
-
-                )
-                viewModel.data.value = bitmap
+//                val barcodeEncoder = BarcodeEncoder()
+//                val bitmap = barcodeEncoder.encodeBitmap(
+//                    vmessUrl,
+//                    BarcodeFormat.QR_CODE,
+//                    width, width
+//
+//                )
+//                viewModel.data.value = bitmap
             } catch (e: Exception) {
                 e.printStackTrace()
                 toast(this, "生成二维码失败")
